@@ -1,0 +1,31 @@
+login:
+    -affichage:
+        form post action(auth.php):
+            -username
+            -password
+    -function:
+
+    -donner:
+auth:
+    -affichage:
+    -donner:
+        - the_user(id, nom, password,admin)
+    -function:
+        - (ok) login(nom, password) return array("status"=>"ok"/"erreur","admin"=0/1)
+    - integration:
+        - recuperer nom,password
+        - appeler function login(nom, pasword):
+            if (status == ok && admin=0) => home
+            else if (status == ok && admin=1) => admin
+            else => afficher message erreur
+admin:
+    - affichage:
+        -menu:
+            -Veriete The
+            -Partielle
+            -Cueilleur
+            -Categorie Depenses
+            -Salaire Cuelleurs
+        -vair
+rendement:
+    -(kg de feille par mois)
